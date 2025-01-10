@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ucapan Ulang Tahun</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #ffe4e6;
+      font-family: 'Arial', sans-serif;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff4081;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+      text-align: center;
+      padding: 0 10px; /* Menambahkan padding agar tidak terpotong */
+    }
+
+    #hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .heart {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      background-color: #ff4081;
+      transform: rotate(45deg);
+      animation: floatUp 6s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: inherit;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -15px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(-100px) rotate(45deg);
+        opacity: 1;
+      }
+    }
+
+    img {
+      width: 100%;
+      max-width: 450px; /* Menjaga ukuran gambar responsif */
+      height: auto; /* Menjaga rasio gambar */
+    }
+
+    h3 {
+      text-align: justify;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      padding: 0 10px; /* Menambahkan padding agar teks tidak terpotong */
+    }
+
+    /* Responsif untuk perangkat mobile */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem; /* Mengurangi ukuran font di perangkat kecil */
+        text-align: center;
+        padding: 0 10px;
+      }
+      h3 {
+        font-size: 1rem; /* Mengurangi ukuran font untuk h3 di perangkat kecil */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1>Selamat Ulang Tahun, Olip Cayang! 💖</h1>
+  <img src="photo_2025-01-10_22-30-10.jpg" alt="Gambar Ulang Tahun">
+  <h3>
+    Happy birthday to my favourite person in the world who's the most beautiful soul, the strongest girl i ever known, my lovely girl. 
+    You aren't just my partner, you are the centre of my universe. Thank you for being so supportive of me. 
+    The only person that can make me be this happy. The only person who deserves to be joyful on this day, and may it be the happiest day of your life. 
+    endlessly in love with you ❤️
+  </h3>
+
+  <div id="hearts"></div>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="Ed Sheeran - Perfect (Official Music Video).mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung pemutar audio.
+  </audio>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.backgroundColor = getRandomColor();
+      document.getElementById('hearts').appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    function getRandomColor() {
+      const colors = ['#ff4081', '#ff80ab', '#ff1744', '#ff8a80', '#ff5252'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+</body>
+
+</html>
